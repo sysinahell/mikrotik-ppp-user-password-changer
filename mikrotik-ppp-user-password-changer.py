@@ -5,7 +5,7 @@ import string
 # Настройки маршрутизатора MikroTik
 router_ip = "192.168.88.1"
 router_user = "admin"
-router_password = "pass@125"
+router_password = "password"
 
 # Настройки профиля и новых паролей
 profile_to_change = "default-encryption"
