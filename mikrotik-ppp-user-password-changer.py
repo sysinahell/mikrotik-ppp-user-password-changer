@@ -3,7 +3,7 @@ import random
 import string
 
 # Настройки маршрутизатора MikroTik
-router_ip = "192.168.75.2"
+router_ip = "192.168.88.1"
 router_user = "admin"
 router_password = "pass@125"
 
