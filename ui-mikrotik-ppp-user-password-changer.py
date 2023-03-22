@@ -3,11 +3,13 @@ import random
 import string
 import tkinter as tk
 from tkinter import ttk
+from ttkthemes import ThemedTk
 
 
 def generate_password(length):
     characters = string.ascii_letters + string.digits
     return ''.join(random.choice(characters) for _ in range(length))
+
 
 def change_passwords():
     router_ip = ip_entry.get()
@@ -37,7 +39,7 @@ def change_passwords():
     ssh_client.close()
 
 
-root = tk.Tk()
+root = ThemedTk(theme="arc")  # Выберите тему, которая вам нравится
 root.title("MikroTik PPP Password Changer")
 
 frame = ttk.Frame(root, padding=(10, 10))
@@ -49,32 +51,32 @@ frame.grid_columnconfigure(1, weight=1)
 frame.grid_rowconfigure(6, weight=1)
 
 ip_label = ttk.Label(frame, text="IP Address:")
-ip_label.grid(row=0, column=0, sticky=tk.W)
+ip_label.grid(row=0, column=0, sticky=tk.W,pady=(5,0),padx=(2,0))
 ip_entry = ttk.Entry(frame)
-ip_entry.grid(row=0, column=1, sticky=(tk.W, tk.E))
+ip_entry.grid(row=0, column=1, sticky=(tk.W, tk.E),pady=(5,0),padx=(2,0))
 
 username_label = ttk.Label(frame, text="Username:")
-username_label.grid(row=1, column=0, sticky=tk.W)
+username_label.grid(row=1, column=0, sticky=tk.W,pady=(5,0),padx=(2,0))
 username_entry = ttk.Entry(frame)
-username_entry.grid(row=1, column=1, sticky=(tk.W, tk.E))
+username_entry.grid(row=1, column=1, sticky=(tk.W, tk.E),pady=(5,0),padx=(2,0))
 
 password_label = ttk.Label(frame, text="Password:")
-password_label.grid(row=2, column=0, sticky=tk.W)
+password_label.grid(row=2, column=0, sticky=tk.W,pady=(5,0),padx=(2,0))
 password_entry = ttk.Entry(frame, show="*")
-password_entry.grid(row=2, column=1, sticky=(tk.W, tk.E))
+password_entry.grid(row=2, column=1, sticky=(tk.W, tk.E),pady=(5,0),padx=(2,0))
 
 profile_label = ttk.Label(frame, text="PPP Profile:")
-profile_label.grid(row=3, column=0, sticky=tk.W)
+profile_label.grid(row=3, column=0, sticky=tk.W,pady=(5,0),padx=(2,0))
 profile_entry = ttk.Entry(frame)
-profile_entry.grid(row=3, column=1, sticky=(tk.W, tk.E))
+profile_entry.grid(row=3, column=1, sticky=(tk.W, tk.E),pady=(5,0),padx=(2,0))
 
 change_password_button = ttk.Button(frame, text="Change Passwords", command=change_passwords)
-change_password_button.grid(row=5, column=0, columnspan=2)
+change_password_button.grid(row=4, column=0, columnspan=2,pady=(10,0))
 
 result_label = ttk.Label(frame, text="Results:")
-result_label.grid(row=6, column=0, sticky=tk.W)
+result_label.grid(row=5, column=0, sticky=tk.W)
 
 result_text = tk.Text(frame, wrap=tk.WORD)
-result_text.grid(row=7, column=0, columnspan=2, sticky=(tk.W, tk.E, tk.N, tk.S))
+result_text.grid(row=6, column=0, columnspan=2, sticky=(tk.W, tk.E, tk.N, tk.S))
 
 root.mainloop()
